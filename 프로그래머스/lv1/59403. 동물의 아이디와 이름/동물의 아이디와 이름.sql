@@ -1,0 +1,5 @@
+-- 코드를 입력하세요
+-- ANIMAL_ID 기준 오름차순으로 정렬
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID;
