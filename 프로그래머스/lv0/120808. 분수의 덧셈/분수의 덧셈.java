@@ -1,5 +1,7 @@
 class Solution {
-    
+    /*
+        gcd : 최대공약수 메소드
+    */
     public static int gcd(int a, int b){
             while(b != 0) {
                 int r = a % b;
