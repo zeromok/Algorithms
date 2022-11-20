@@ -1,8 +1,4 @@
 function solution(slice, n) {
-<<<<<<< HEAD
-   return Math.ceil(n/slice);
-}
-=======
    return ( n % slice == 0 ? parseInt( n / slice ) : parseInt( n / slice ) + 1 )
 }
 /*
@@ -29,4 +25,4 @@ function solution(slice, n) {
    3. Math.ceil(n/slice);
       () 안 들어온 값을 무조건 소수점 자리를 올려 반환
 */
->>>>>>> 2d10c0f (120816. Update)
+
