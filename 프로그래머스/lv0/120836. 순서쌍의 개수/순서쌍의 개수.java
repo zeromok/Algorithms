@@ -1,13 +1,12 @@
-import java.util.ArrayList;
-class Solution {
+ class Solution {
     public int solution(int n) {
-        ArrayList<Integer> list=new ArrayList<Integer>(); 
+        int result = 0;
         for(int i=1; i<=n; i++) {
             if(n%i == 0) {
-                list.add(i);
+                result++;
             }
         }
-        return list.size();
+        return result;
     }
 }
 /*
