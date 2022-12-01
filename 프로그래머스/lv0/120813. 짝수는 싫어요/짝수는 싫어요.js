@@ -15,5 +15,9 @@ function solution(n) {
     4. for문 안 홀수만 판별해내는 if문 선언후 통과되면 배열에 추가
 
     다른 풀이 :
-    filter( (value) => { result value%2 === 1; } )
+    1. result.filter( (value) => { result value%2 === 1; } )
+        -> 내장함수( .filter() ) 사용
+    2. (int i=1; i<=n; i+=2)
+        -> for문의 조건식 만으로 홀수만 집어넣기
+
 */
