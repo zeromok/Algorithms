@@ -30,4 +30,15 @@ function solution(n) {
     **주의 :
     parseInt() : 문자열로 된 숫자에서 숫자(정수)만 뽑아서 변환 -> 문자로 시작하는건 안됨
     Number() : 문자열 전체가 숫자일때 소수점까지 숫자타입으로 가져올 수 있다.
+
+    또 다른 접근 :
+    1. 쓸 수 있는 모든 내장함수를 끌어모아 해결해보기
+    2. n -> String( .toString() ) -> Array( .split() ) -> Number( .map() ) === 정수타입의 문자 하나,하나 들어가있는 배열 반환
+    3. .reduce( callback ) : 각 요소를 순회하며 실행값을 누적하여 반환
+
+    function solution(n) {
+        let arr = n.toString().split("").map(Number);
+        let result = arr.reduce( (a, b) => {return a + b;})
+        return result;
+    }
 */
