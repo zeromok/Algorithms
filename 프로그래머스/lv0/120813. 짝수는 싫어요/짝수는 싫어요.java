@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 class Solution {
-    public ArrayList solution(int n) {
+    public ArrayList<Integer> solution(int n) {
         ArrayList<Integer> list=new ArrayList<Integer>(); 
         
         for(int i=1; i<=n; i+=2) {                        
