@@ -22,6 +22,6 @@ ORDER BY NAME;
     2. [WHERE]
     3. [GROUP BY]
     4. [HAVING]
-    5. [ORDER BY]
-    6. SELECT
+    5. SELECT
+    6. [ORDER BY]
 */
