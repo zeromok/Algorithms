@@ -11,4 +11,7 @@ ORDER BY ANIMAL_TYPE;
     4. [HAVING]
     5. SELECT
     6. [ORDER BY]
+
+    위 문제에서 ANIMAL_TYPE 이 cat, dog 만 있어서 제대로 나왔지만,
+    TYPE 가 여러가지 일 경우, WHERE ANIMAL_TYPE IN ('cat', 'dog') 를 넣어주면 더 완벽하다.
 */
