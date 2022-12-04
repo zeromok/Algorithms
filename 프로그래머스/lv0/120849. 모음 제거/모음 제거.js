@@ -19,6 +19,7 @@ function solution(my_string) {
     8. 마지막의 결과값을 .join() 으로 문자열로 만들어 반환
 
     다른풀이 :
+    매개변수로 들어온 문자열에서 문자제거 -> 즉, 문자열 치환!
     replace() 를 사용한 풀이
 
     function solution(my_string) {
