@@ -18,6 +18,7 @@ function solution(price) {
 
     다른 풀이 :
     Ex) 할인율 20%일 때, price * 0.8 === price - (price * 0.2)
+    
     function solution(price) {
         if(price >= 500000) {
             return Math.floor(price - (price * 0.2));
