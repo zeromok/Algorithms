@@ -6,5 +6,12 @@ function solution(my_string) {
     }
     return sum;
 }
-// filter()
-// 안 콜백 함수
+/*
+    접근법 :
+    isNaN() : 어떤 값이 NaN(Not a Number)인지 판별 Number가 아니면 ture / Number이면 false
+
+    다른 접근법 :
+    Number() : 1. Number('10') = 10
+               2. !Number('10') = false
+               3. !!Number('10') = true
+*/
