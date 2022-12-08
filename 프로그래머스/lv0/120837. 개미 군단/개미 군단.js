@@ -33,6 +33,5 @@ function solution(hp) {
             let z = Math.floor(hp%5%3);
             return x + y + z;
         }
-        return hp;
     }
 */
