@@ -10,3 +10,10 @@ class Solution {
         return arr;
     }
 }
+/*
+    접근법 :
+    문자열에서 숫자빼고 다 치환 -> replaceAll();
+    리턴타입인 int[] 배열 생성, 크기는 치환된 문자열의 길이 -> arr
+    반복문을 돌며 원소 하나하나 빼내 int타입으로 변환 해 넣기 -> for()
+    int[]배열 정렬 후 반환 -> Arrays.sort();
+*/
