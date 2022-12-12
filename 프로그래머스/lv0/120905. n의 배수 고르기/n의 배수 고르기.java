@@ -10,3 +10,7 @@ class Solution {
         return list;
     }
 }
+/*
+    접근법 :
+    n의 배수만 넣을 배열이 필요하다 But 몇개나 넣을지는 미정 -> ArrayList를 사용하자
+*/
