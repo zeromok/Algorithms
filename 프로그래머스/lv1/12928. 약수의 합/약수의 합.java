@@ -9,3 +9,8 @@ class Solution {
         return answer;
     }
 }
+/*
+    접근법 :
+    JS 와 같은 방식으로 풀어 보았다.
+    단, 타입 주의 !
+*/
