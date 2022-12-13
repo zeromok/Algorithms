@@ -18,6 +18,8 @@ function solution(my_string) {
 
     다른 접근법 :
     
+    1. 들어온 문자열을 문자 하나,하나 배열로 만들어 result에 담아줌
+       result 기준으로 순회하며 풀어나가는 방법
     function solution(my_string) {
         let result = my_string.split('');
         for(let i=0; i<result.length; i++) {
@@ -30,7 +32,8 @@ function solution(my_string) {
         return result.join('');
     }
 
-
+    2. 유니코드를 이용한 방법 
+       Ex) 'c' = 99, 'C' = 67
     function solution(my_string) {
         let result = my_string.split('');
         for(let i=0; i<result.length; i++) {
