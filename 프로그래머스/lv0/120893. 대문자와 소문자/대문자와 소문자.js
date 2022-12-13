@@ -33,11 +33,12 @@ function solution(my_string) {
     }
 
     2. 유니코드를 이용한 방법
-       Ex) 'c' = 99, 'C' = 67
+       'A' ~ = 65 ~, 'a' ~ = 97 ~
+       즉, 97보다 작으면 대문자
     function solution(my_string) {
         let result = my_string.split('');
         for(let i=0; i<result.length; i++) {
-            if(result[i].charCodeAt() === 67) {
+            if(result[i].charCodeAt() < 97) {
                 result[i] = result[i].toLowerCase();
             }else{
                 result[i] = result[i].toUpperCase();
