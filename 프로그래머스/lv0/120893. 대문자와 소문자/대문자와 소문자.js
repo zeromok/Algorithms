@@ -1,6 +1,5 @@
 function solution(my_string) {
     let answer = '';
-    let result = my_string.split('');
     for(let i=0; i<my_string.length; i++) {
         if(my_string[i] === my_string[i].toUpperCase()) {
             answer += my_string[i].toLowerCase();
@@ -10,3 +9,39 @@ function solution(my_string) {
     }
     return answer;
 }
+/*
+    접근법 :
+    들어온 문자열을 대문자는 소문자로, 소문자는 대문자로 바꿔야 한다.
+    빈 문자열을 만들어 놓고 들어온 문자열을 순회하면 대,소문자로 바꾸어 넣는 방법을 해보자
+    answer -> 대,소문자가 바뀐 문자가 들어갈 변수
+    for문을 실행해 조건문으로 대소문자인지 판별후, 그에 맞게 넣어준다.
+
+    다른 접근법 :
+    
+    function solution(my_string) {
+        let result = my_string.split('');
+        for(let i=0; i<result.length; i++) {
+            if(result[i] === result[i].toUpperCase()) {
+                result[i] = result[i].toLowerCase();
+            }else{
+                result[i] = result[i].toUpperCase();
+            }
+        }
+        return result.join('');
+    }
+
+
+    function solution(my_string) {
+        let result = my_string.split('');
+        for(let i=0; i<result.length; i++) {
+            if(result[i].charCodeAt() === 67) {
+                result[i] = result[i].toLowerCase();
+            }else{
+                result[i] = result[i].toUpperCase();
+            }
+        }
+        return result.join('');
+    }
+
+
+*/
