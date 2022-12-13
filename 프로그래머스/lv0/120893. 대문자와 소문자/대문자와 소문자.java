@@ -18,5 +18,18 @@ class Solution {
     뽑아온 문자가 대문자인지, 소문자인지 판별 -> isUpper(Lower)Case();
     조건 대로 빈 문자열에 넣어준 다음 반환해준다.
 
-    
+    다른 접근법 : 유니코드 사용
+    class Solution {
+    public String solution(String my_string) {
+         String result = "";
+        for(int i=0; i<my_string.length(); i++) {
+            if ((int)my_string.charAt(i) < 97) {
+                result += Character.toLowerCase(my_string.charAt(i));
+            }else {
+                result += Character.toUpperCase(my_string.charAt(i));
+            }
+        }
+        return result;
+    }
+}
 */
