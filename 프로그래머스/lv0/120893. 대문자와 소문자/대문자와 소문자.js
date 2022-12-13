@@ -32,7 +32,7 @@ function solution(my_string) {
         return result.join('');
     }
 
-    2. 유니코드를 이용한 방법 
+    2. 유니코드를 이용한 방법
        Ex) 'c' = 99, 'C' = 67
     function solution(my_string) {
         let result = my_string.split('');
