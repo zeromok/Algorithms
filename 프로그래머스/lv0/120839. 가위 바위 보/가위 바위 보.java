@@ -22,7 +22,7 @@ class Solution {
     다른 접근법 : JS처럼 replace 사용하기에는 제약이 있다.
 
     1. 삼항 연산자 사용
-        자바는 여기가 최대한 인 것 같다...
+        자바는 여기까지...다른 접근은 또 있을까...?
     class Solution {
         public String solution(String rsp) {
             String result = "";
