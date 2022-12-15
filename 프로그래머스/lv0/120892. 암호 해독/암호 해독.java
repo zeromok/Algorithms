@@ -39,7 +39,6 @@ class Solution {
         }
     }
 
-
     위 예제를 일반 for문으로 변환해 보자 -> 이해를 위해...완벽한 변환은 아니다.
     String result = "";
     for(int i=0; i<cipher.length(); i++) {
