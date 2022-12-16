@@ -25,13 +25,21 @@ function solution(array) {
 
     
     다른 접근법 :
-    배열의 깊은복사, 마지막 인덱스를 가져오는 방법을 다르게 해보았다.
+
+    1. 배열의 깊은복사, 마지막 인덱스를 가져오는 방법을 다르게 해보았다.
 
     function solution(array) {
         let copy = array.slice().sort( (a, b) => { return a-b; });
         let result  = [];
         result.push(copy.slice(-1)[0]);
         result.push(array.indexOf(copy.slice(-1)[0]));
+        return result;
+    }
+
+    2. 스프레드연산자를 사용하면 배열이나 문자열과 같이 반복 가능한 문자를 0개 이상의 인수 (함수로 호출할 경우)로 확장가능
+    
+    function solution(array) {
+        let result = [Math.max(...array), array.indexOf(...array);
         return result;
     }
 */
