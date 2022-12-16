@@ -27,5 +27,25 @@ class Solution {
         
     
     다른 접근법 :
-    
+    반복문을 통한 깊은복사 구현
+
+    class Solution {
+    public int[] solution(int[] array) {
+        int[] result = new int[2];
+        int max = 0;
+        int index = 0;
+        
+        for(int i=0; i<array.length; i++) {
+            if(array[i] > max) {
+                max = array[i];
+                index = i;
+            }
+        }
+        
+        result[0] = max;
+        result[1] = index;
+
+        return result;
+    }
+}
 */
