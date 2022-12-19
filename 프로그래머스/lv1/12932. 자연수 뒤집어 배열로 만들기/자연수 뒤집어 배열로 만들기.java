@@ -20,8 +20,8 @@ class Solution {
 
 
     다른 접근법 :
-    ArrayList 를 쓰지 않고 접근해 보았다.
-    
+    ArrayList를 쓰지 않고 접근해 보았다.
+
     class Solution {
         public ArrayList solution(long n) {
             String result = n + "";
