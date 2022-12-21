@@ -23,7 +23,7 @@ function solution(n) {
 
 
     다른 접근법 :
-        정수는 1로 나누면 항상 나머지가 0이 된다.
+        정수는 1로 나누면 항상 나머지가 0이 되는 속성을 이용
 
     function solution(n) {
 
