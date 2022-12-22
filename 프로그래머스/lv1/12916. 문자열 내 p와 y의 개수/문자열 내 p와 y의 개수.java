@@ -13,7 +13,11 @@ class Solution {
             }
         }
         
-        return p == y ? true : false;
+        return p == y;
         
     }
 }
+/*
+    접근법 :
+        -
+*/
