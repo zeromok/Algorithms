@@ -9,3 +9,10 @@ class Solution {
         return x%sum == 0;
     }
 }
+/*
+    접근법 :
+
+
+    다른 접근법 :
+    
+*/
