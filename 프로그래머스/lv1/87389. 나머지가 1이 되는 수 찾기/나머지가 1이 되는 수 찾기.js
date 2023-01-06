@@ -7,3 +7,7 @@ function solution(n) {
         }
     }
 }
+/*
+    접근법 :
+    
+*/
