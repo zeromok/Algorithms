@@ -9,3 +9,6 @@ function solution(my_string, num1, num2) {
     
     return arr.join("");
 }
+/*
+    Á¢±Ù¹ý : 
+*/
