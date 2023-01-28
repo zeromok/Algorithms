@@ -12,5 +12,4 @@ function solution(my_string, num1, num2) {
 /*
     Á¢±Ù¹ý : 
 
-    
 */
