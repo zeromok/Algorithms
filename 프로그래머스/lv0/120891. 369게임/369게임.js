@@ -1,6 +1,6 @@
 function solution(order) {
     // 박수횟수 = return
-    // 3, 6, 9 의 배수 카운트 즉, 3의 배수 카운트?
+    // 3, 6, 9 의 배수 카운트 즉, 3의 배수 카운트
     
     let result = 0;
     
