@@ -6,7 +6,7 @@ function solution(order) {
     
     let str = order.toString();
     
-    [...str].forEach( item => {if(Number(item)%3 === 0 && Number(item)>=3 ) result++} )
+    [...str].forEach( item => { if( Number(item)%3 === 0 && Number(item)>=3 ) result++ } )
     
     return result;
 }
