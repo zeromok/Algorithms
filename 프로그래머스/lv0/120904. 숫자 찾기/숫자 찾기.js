@@ -17,7 +17,7 @@ function solution(num, k) {
     배열num 에서 문자열로 바꾼 k 의 위치를 찾아 반환 = .indexOf("" + k);
 
 
-    다른접근법 :
+    다른 접근법 :
     정수num -> 문자열num = .toString();
     문자열num -> 문자열배열num = .split("");
     문자열배열num -> 정수배열num = .map( (item) => Number(item) );
