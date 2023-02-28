@@ -346,3 +346,9 @@ gradle-app.setting
 *.hprof
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,gradle,node,visualstudiocode,intellij+all
+/test/src/log4j2.xml
+/test/src/Main.java
+/test/src/test.js
+/test/
+/.idea/
+/out/
