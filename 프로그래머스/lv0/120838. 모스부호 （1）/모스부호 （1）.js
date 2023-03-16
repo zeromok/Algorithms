@@ -14,3 +14,16 @@ function solution(letter) {
         }
         return result;
 }
+
+console.log(solution(".... . .-.. .-.. ---"));
+/*
+* Refactor
+    function Solution(letter) {
+        let result = "";
+        for (let i = 0; i < letter.split(" ").length; i++) {
+            result += morse[letter.split(" ")[i]];
+        }
+        return result;
+    }
+
+*/
