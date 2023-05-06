@@ -1,10 +1,10 @@
 # [unrated] 수 조작하기 1 - 181926 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181926) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181926?language=javascript) 
 
 ### 성능 요약
 
-메모리: 74.9 MB, 시간: 13.85 ms
+메모리: 35.8 MB, 시간: 2.31 ms
 
 ### 구분
 
