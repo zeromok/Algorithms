@@ -1,10 +1,10 @@
 # [unrated] 이어 붙인 수 - 181928 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181928) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181928?language=javascript) 
 
 ### 성능 요약
 
-메모리: 71.9 MB, 시간: 9.98 ms
+메모리: 33.6 MB, 시간: 0.08 ms
 
 ### 구분
 
