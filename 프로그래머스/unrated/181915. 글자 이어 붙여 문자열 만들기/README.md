@@ -1,10 +1,10 @@
 # [unrated] 글자 이어 붙여 문자열 만들기 - 181915 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181915) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181915?language=javascript) 
 
 ### 성능 요약
 
-메모리: 75.2 MB, 시간: 9.06 ms
+메모리: 33.4 MB, 시간: 0.08 ms
 
 ### 구분
 
