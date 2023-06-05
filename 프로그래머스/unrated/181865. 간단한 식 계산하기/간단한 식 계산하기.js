@@ -6,5 +6,5 @@ function solution(binomial) {
     if (binomial.includes("+")) return num1 + num2;
     if (binomial.includes("-")) return num1 - num2;
     if (binomial.includes("*")) return num1 * num2;
-
+    if (binomial.includes("*")) return num1 * num2;
 }
