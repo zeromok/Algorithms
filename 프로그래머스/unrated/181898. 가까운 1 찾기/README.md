@@ -1,10 +1,10 @@
 # [unrated] 가까운 1 찾기 - 181898 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181898?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181898?language=javascript) 
 
 ### 성능 요약
 
-메모리: 76.2 MB, 시간: 4.69 ms
+메모리: 33.5 MB, 시간: 0.04 ms
 
 ### 구분
 
