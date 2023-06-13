@@ -1,10 +1,10 @@
 # [unrated] ad 제거하기 - 181870 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181870) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181870?language=java) 
 
 ### 성능 요약
 
-메모리: 33.7 MB, 시간: 0.10 ms
+메모리: 75.8 MB, 시간: 2.50 ms
 
 ### 구분
 
