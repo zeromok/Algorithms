@@ -1,10 +1,10 @@
 # [unrated] 문자열 잘라서 정렬하기 - 181866 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181866) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181866?language=javascript) 
 
 ### 성능 요약
 
-메모리: 76.4 MB, 시간: 18.03 ms
+메모리: 39 MB, 시간: 16.20 ms
 
 ### 구분
 
