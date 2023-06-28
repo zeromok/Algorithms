@@ -1,7 +1,7 @@
 function solution(numLog) {
     let result = "";
     numLog.reduce((acc, curr, idx) => {
-        switch (numLog[idx] - numLog[idx - 1]) {
+        switch (curr - numLog[idx - 1]) {
             case 1:
                 result += "w";
                 break;
