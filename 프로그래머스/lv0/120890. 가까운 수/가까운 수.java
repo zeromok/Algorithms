@@ -1,17 +1,15 @@
+import java.util.Arrays;
 class Solution {
     public int solution(int[] array, int n) {
-        int result = array[ 0 ];
+        return Arrays.stream( array )
+					 .reduce( array[ 0 ], ( acc, curr ) -> {
+						 int accValue = Math.abs( acc - n );
+						 int currValue = Math.abs( curr - n );
 
-		for ( int i = 1; i < array.length; i++ ) {
-			int temp = array[ i ];
-			int fix = Math.abs( result - n );
-			int curr = Math.abs( temp - n );
-            
-			if ( fix > curr || ( fix == curr && result > temp ) ) {
-				result = temp;
-			}
-            
-		}
-		return result;
+						 if ( accValue > currValue || accValue == currValue && acc > curr )
+							 return curr;
+
+						 return acc;
+					 } );
     }
 }
