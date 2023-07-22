@@ -1,8 +1,8 @@
 function solution(arr, queries) {
-    queries.forEach((querie, idx) => {
-        let temp = arr[querie[0]];
-        arr[querie[0]] = arr[querie[1]];
-        arr[querie[1]] = temp;
+    queries.forEach((query, idx) => {
+        let temp = arr[query[0]];
+        arr[query[0]] = arr[query[1]];
+        arr[query[1]] = temp;
     });
     return arr;
 }
