@@ -1,10 +1,10 @@
 # [level 3] 금과 은 운반하기 - 86053 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/86053) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/86053?language=javascript) 
 
 ### 성능 요약
 
-메모리: 33.5 MB, 시간: 0.45 ms
+메모리: 33.5 MB, 시간: 0.20 ms
 
 ### 구분
 
