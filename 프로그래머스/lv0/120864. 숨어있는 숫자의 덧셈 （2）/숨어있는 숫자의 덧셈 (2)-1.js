@@ -1,8 +1,18 @@
 function solution(my_string) {
-    const regex = /\d+/g;
-    const matches = my_string.match(regex);
+    let sum = 0;
+    let currentNumber = 0;
 
-    if (!matches) return 0;
+    for (let i = 0; i < my_string.length; i++) {
+        const char = my_string[i];
 
-    return matches.reduce((acc, curr) => acc + parseInt(curr), 0);
+        if (char >= "0" && char <= "9") {
+            currentNumber = currentNumber * 10 + parseInt(char);
+        } else {
+            sum += currentNumber;
+            currentNumber = 0;
+        }
+    }
+
+    sum += currentNumber;
+    return sum;
 }
