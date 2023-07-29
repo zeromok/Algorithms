@@ -1,7 +1,7 @@
 function solution(my_string, indices) {
-    let arr = my_string.split("");
+    let my_stringArr = my_string.split("");
     indices.forEach((num) => {
-        delete arr[num];
+        delete my_stringArr[num];
     });
-    return arr.join("");
+    return my_stringArr.join("");
 }
