@@ -1,25 +1,35 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
 public class Main {
 
-	public static void main( String[] args ) {
-		Scanner sc = new Scanner( System.in );
+	public static void main( String[] args ) throws IOException {
+		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
+		BufferedWriter bw = new BufferedWriter( new OutputStreamWriter( System.out ) );
+		StringTokenizer st = new StringTokenizer( br.readLine( ) );
+		
+		int numNo = Integer.parseInt( st.nextToken( ) );
+		int queryNo = Integer.parseInt( st.nextToken( ) );
 
-		int numCnt = Integer.parseInt(sc.next()); // 숫자의 개수 입력 받기
-		int queryCnt = Integer.parseInt(sc.next()); // 질의 개수 입력 받기
+		st = new StringTokenizer( br.readLine( ) );
+		int[] sumArr = new int[ numNo + 1 ];
 
-		// 합 배열 선언
-		int[] sumArr = new int[ numCnt + 1 ];
-		// 합 배열 초기화
-		for ( int i = 1; i <= numCnt; i++ ) {
-			sumArr[ i ] = sumArr[ i - 1 ] + Integer.parseInt(sc.next());
+		for ( int i = 0; i < numNo; i++ ) {
+			sumArr[ i + 1 ] = sumArr[ i ] + Integer.parseInt( st.nextToken( ) );
 		}
 
-		// 구간 합 공식
-		for ( int q = 0; q < queryCnt; q++ ) {
-			int i = Integer.parseInt(sc.next());
-			int j = Integer.parseInt(sc.next());
-			System.out.println( sumArr[ j ] - sumArr[ i - 1 ] );
+		for ( int i = 0; i < queryNo; i++ ) {
+			st = new StringTokenizer( br.readLine( ) );
+			int start = Integer.parseInt( st.nextToken( ) );
+			int end = Integer.parseInt( st.nextToken( ) );
+
+			bw.write( ( sumArr[ end ] - sumArr[ start - 1 ] ) + "\n" );
 		}
+		bw.flush( );
+		bw.close( );
 	}
-
-} // end
+}
