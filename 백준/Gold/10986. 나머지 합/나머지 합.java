@@ -16,9 +16,9 @@ public class Main {
 		// M 입력 받기
 		int mod = Integer.parseInt( st.nextToken() );
 
-		// S 선언 (합 배열)
+		// 합 배열 선언
 		long[] sumArr = new long[num];
-		// C 선언 (같은 나머지 그룹화)
+		// 같은 나머지 그룹화를 위한 배열 선언
 		long[] modArr = new long[mod];
 		// result 선언
 		long result = 0;
@@ -30,7 +30,7 @@ public class Main {
 			sumArr[ i ] = sumArr[ i - 1 ] + Integer.parseInt( st.nextToken() );
 		}
 
-		// 합 배열의 모든 원소에 %3 연산
+		// 합 배열의 모든 원소에 %M 연산
 		for ( int i = 0; i < num; i++ ) {
 			int temp = ( int )(sumArr[i] % mod);
 			// 0~i 까지의 합이 0일 때
