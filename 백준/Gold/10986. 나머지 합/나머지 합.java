@@ -18,7 +18,7 @@ public class Main {
 
 		// S 선언 (합 배열)
 		long[] sumArr = new long[num];
-		// C 선언 (같은 나머지의 인덱스를 카운트)
+		// C 선언 (같은 나머지 그룹화)
 		long[] modArr = new long[mod];
 		// result 선언
 		long result = 0;
