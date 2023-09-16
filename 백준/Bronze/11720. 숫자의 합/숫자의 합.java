@@ -1,25 +1,30 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 public class Main {
 
-	public static void main( String[] args ) {
-		/*
-		* N의 값 입력 받기
-		* 숫자 N개 입력 받아 String 으로 형변환
-		* N개의 크기를 가진 char형 배열 선언
-		* char형 배열에 String인 숫자 N개 형변환 해서 집어 넣기
-		* char형 순회하며 int형변환 해 누적값 계산 후 출력
-		* */
-		Scanner sc = new Scanner( System.in );
-		int num = sc.nextInt();
-		String strNum = sc.next();
+	public static void main( String[] args ) throws IOException {
+		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
+		BufferedWriter bw = new BufferedWriter( new OutputStreamWriter( System.out ) );
+		StringTokenizer st = new StringTokenizer( br.readLine() );
 
-		char[] chArr = new char[ num ];
-		chArr = strNum.toCharArray();
-		int sum = 0;
-		for ( char ch : chArr ) {
-			sum += ch - '0';
-		}
-		System.out.println( sum );
+		// N 입력받기
+		String N = st.nextToken();
+
+		// N개의 숫자 입력 받아(numList) char[] 로 초기화(numArr)
+		st = new StringTokenizer( br.readLine() );
+		String numList = st.nextToken();
+		char[] numArr = numList.toCharArray();
+
+		long sum = 0; // 결과값이 담길 변수 선언 및 초기화
+
+		// 위 char[] 순회하며 정수타입으로 바꾸어 sum에 더하기
+		for ( char ch : numArr ) sum += ch - '0';
+
+		bw.write( sum + "\n" );
+		bw.flush();
 	}
-
 } // end
