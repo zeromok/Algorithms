@@ -1,32 +1,35 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
 public class Main {
 
-	public static void main( String[] args ) {
-		/*
-		* 변수 num 에 과목수 입력받기
-		* String strNum에 공백 기준 과목별 점수 입력받기
-		* num의 크기를 가진 int[] scores 할당
-		* strNum을 공백기준 배열로 만든 후 int 형변환해서 scores 에 할당
-		* scores를 순회하며 최댓값, 모든 점수 합계 구하기
-		* 수식을 이용해 새로운 점수의 평균 반환
-		* */
-		Scanner sc = new Scanner( System.in );
-		int num = sc.nextInt();
-		sc.nextLine();
-		String strNum = sc.nextLine();
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		int[] scores = new int[ num ];
-		String[] temp = strNum.split( " " );
-		for ( int i = 0; i < temp.length; i++ ) {
-			scores[ i ] = Integer.parseInt( temp[ i ] );
-		}
-		long max=0;
+		long N = Integer.parseInt(st.nextToken()); // 과목 수 입력 받기
+		long[] numArr = new long[(int)N]; // 길이가 N인 배열 선언
+		long M = 0;
 		long total = 0;
-		for ( int i = 0; i < scores.length; i++ ) {
-			total += scores[ i ];
-			if(scores[i] > max)
-				max = scores[ i ];
+
+		st = new StringTokenizer(br.readLine());
+		for (int i = 0; i < numArr.length; i++) {
+			numArr[i] = Integer.parseInt(st.nextToken());
 		}
-		System.out.println( total * 100.0 / max / num );
-    }
-}
+
+		for (long l : numArr) {
+			if (M < l)
+				M = l;
+			total += l;
+		}
+
+		bw.write(total * 100.0 / M / N + "\n");
+		bw.flush();
+		bw.close();
+	}
+} // end
