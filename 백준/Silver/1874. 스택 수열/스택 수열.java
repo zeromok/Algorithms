@@ -11,7 +11,7 @@ public class Main {
 		StringBuilder sb = new StringBuilder();
 		int N = Integer.parseInt( br.readLine() );
 
-		int[] A = new int[N];
+		int[] A = new int[ N ];
 		for ( int i = 0; i < N; i++ ) {
 			A[ i ] = Integer.parseInt( br.readLine() );
 		}
@@ -26,9 +26,9 @@ public class Main {
 					stack.push( num++ );
 					sb.append( "+\n" );
 				}
-
 				stack.pop();
 				sb.append( "-\n" );
+
 			} else {
 				int top = stack.pop();
 
@@ -39,12 +39,12 @@ public class Main {
 					sb.append( "-\n" );
 				}
 			}
-		}
+		} // for
 
 		if ( trigger ) {
 			System.out.println( sb );
 		} else {
-			System.out.println("NO");
+			System.out.println( "NO" );
 		}
 	}
 } // end
