@@ -19,11 +19,13 @@ public class Main {
 
 		for ( int i = 0; i < N.length(); i++ ) {
 			int maxIdx = i;
+
 			for ( int j = i + 1; j < N.length(); j++ ) {
 				if ( A[j] > A[maxIdx] ) {
 					maxIdx = j;
 				}
 			}
+
 			int temp = A[i];
 			A[i] = A[maxIdx];
 			A[maxIdx] = temp;
