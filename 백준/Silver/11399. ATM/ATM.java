@@ -20,7 +20,7 @@ public class Main {
 			A[i] = Integer.parseInt( st.nextToken() );
 		}
 
-		// 삽입
+		// 삽입 정렬
 		for ( int i = 1; i < N; i++ ) {
 			int temp = A[i];
 			int firstIdx = i - 1;
