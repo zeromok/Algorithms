@@ -194,7 +194,7 @@ lib-cov
 coverage
 *.lcov
 
-# nyc src.test coverage
+# nyc src.main coverage
 .nyc_output
 
 # Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
@@ -348,8 +348,8 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,gradle,node,visualstudiocode,intellij+all
 /src/log4j2.xml
 /src/Main.java
-/src/test/test.js
-/src/test/
+/src/main/test.js
+/src/main/
 /.idea/
 /out/
 /package.json
