@@ -349,6 +349,8 @@ gradle-app.setting
 /src/log4j2.xml
 /src/Main.java
 /src/main/test.js
+/src/main/Main.java
+/src/main/log4j2.xml
 /.idea/
 /out/
 /package.json
