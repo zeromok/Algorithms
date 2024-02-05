@@ -22,10 +22,13 @@ public class Main {
 	}
 
 	private void solution( ) throws IOException {
-		int nodeNum = Integer.parseInt( br.readLine( ) );
-		distance = new int[ nodeNum + 1 ];
-		nodes = new ArrayList[ nodeNum + 1 ];
-		visited = new boolean[ nodeNum + 1 ];
+
+		int nodeNum = Integer.parseInt( br.readLine( ) ); // 노드 개수 입력받기
+
+		distance = new int[ nodeNum + 1 ]; // 거리 저장 배열
+		nodes = new ArrayList[ nodeNum + 1 ]; // 인접 리스트
+		visited = new boolean[ nodeNum + 1 ]; // 방문배열
+
 		for ( int i = 1; i < nodeNum + 1; i++ ) {
 			nodes[ i ] = new ArrayList<>( );
 		}
@@ -46,6 +49,7 @@ public class Main {
 		BFS( 1 );
 
 		// 임의의 노드에서 가장 긴 경로로 연결되어 있는 노드를 찾는다.
+		// * 찾은 가장 긴 경로로 연결되어 있는 노드는 트리의 지름에 해당하는 두 노드 중 하나다
 		int max = 1;
 		for ( int i = 2; i <= nodeNum; i++ ) {
 			if ( distance[ max ] < distance[ i ] ) {
@@ -53,7 +57,7 @@ public class Main {
 			}
 		}
 
-		// 위에서 찾은 노드로 다시 한번 수행
+		// 위에서 찾은 노드로 다시 한번 탐색 수행
 		distance = new int[ nodeNum + 1 ];
 		visited = new boolean[ nodeNum + 1 ];
 		BFS( max );
@@ -87,12 +91,12 @@ public class Main {
 
 class Node {
 	// 목적지 노드
-	int destinstion;
+	int destination;
 	// 이어진 노드와의 거리
 	int distance;
 
-	public Node( int e, int d ) {
-		this.destinstion = e;
-		this.distance = d;
+	public Node( int destination, int distance ) {
+		this.destination = destination;
+		this.distance = distance;
 	}
 }
