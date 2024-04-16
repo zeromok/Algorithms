@@ -20,11 +20,12 @@ You can return the answer in any order.
 #### output
     [1,2]
 
+- - -
+
 #### Input
     nums = [3,3], target = 6
 #### output
     [0,1]
-
 
 ### 제약조건
 - `2 <= nums.length <= 10^4`
