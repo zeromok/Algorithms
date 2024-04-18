@@ -1,0 +1,1 @@
+[going to solutions](https://velog.io/@dainel/LeetCode0002.-Add-Two-Numbers)
