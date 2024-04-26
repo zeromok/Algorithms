@@ -1,19 +1,16 @@
 class Solution {
     public boolean isValid(String s) {
-       Stack<Character> mate = new Stack<>();
+        Map<Character, Character> mate = Map.of('(', ')', '{', '}', '[', ']');
+		Stack<Character> stack = new Stack<>();
 
 		for (char item : s.toCharArray()) {
-			if (item == '(') {
-				mate.push(')');
-			} else if (item == '{') {
-				mate.push('}');
-			} else if (item == '[') {
-				mate.push(']');
-			} else if (mate.isEmpty() || item != mate.pop()) {
+			if (item == '(' || item == '{' || item == '[') {
+				stack.push(mate.get(item));
+			} else if (stack.isEmpty() || item != stack.pop()) {
 				return false;
 			}
 		}
 
-		return mate.isEmpty();
+		return stack.isEmpty();
     }
 }
