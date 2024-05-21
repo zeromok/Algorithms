@@ -347,11 +347,10 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,gradle,node,visualstudiocode,intellij+all
 /src/log4j2.xml
-/src/main/Main.java
-/src/main/test.js
 /.idea/
 /out/
 /package.json
 /package-lock.json
 .prettierrc.js
 /src/main/log4j2.xml
+src/main/test.iml
