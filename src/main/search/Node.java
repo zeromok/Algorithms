@@ -22,15 +22,15 @@ class Node {
 	boolean visited;
 
 	// 노드의 인접 노드
-	ArrayList< Node > adjacentNode;
+	ArrayList<Node> adjacentNode;
 
-	public Node( int i, boolean b, ArrayList< Node > nodes ) {
+	public Node(int i, boolean b, ArrayList<Node> nodes) {
 		this.value = i;
 		this.visited = b;
 		this.adjacentNode = nodes;
 	}
 
-	public String toString( ) {
+	public String toString() {
 		return value + " " + visited + " " + adjacentNode;
 	}
 }
