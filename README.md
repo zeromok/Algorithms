@@ -1,6 +1,6 @@
 # 🚀 Algorithms
 
-> 3년차 백엔드 개발자의 알고리즘 문제 해결 기록
+> 알고리즘 문제 해결 기록
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=zeromok)](https://solved.ac/zeromok)
 ![Language](https://img.shields.io/badge/Language-Java-red)
