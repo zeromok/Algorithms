@@ -18,6 +18,9 @@ public class Union_Find_V03 {
 		}
 	}
 
+	// 경로 압축
+	// 1. x가 속한 집합의 대표 원소 R을 찾는다.
+	// 2.
 	public int find(int x) {
 		if (parent[x] != x) {
 			// 경로 압축: x의 부모를 루트로 직접 연결
@@ -26,15 +29,16 @@ public class Union_Find_V03 {
 		return parent[x];
 	}
 
+	// 랭크 기반 합치기
+	// 크기가 작은 집합을 크기가 큰 집합의 자식으로 연결한다.
 	public void union(int a, int b) {
-		int rootA = find(a);
-		int rootB = find(b);
+		int rootA = find(a); // rootA: a가 속한 집합의 대표 원소
+		int rootB = find(b); // rootB: b가 속한 집합의 대표 원소
 
 		if (rootA == rootB) {
 			return;
 		}
 
-		// 랭크가 낮은 트리를 높은 트리에 연결
 		if (rank[rootA] < rank[rootB]) {
 			parent[rootA] = rootB;
 		} else if (rank[rootA] > rank[rootB]) {
