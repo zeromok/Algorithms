@@ -3,11 +3,9 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayDeque;
-import java.util.Deque;
 
 public class Main {
-	private static String EOD = "0";
+	private static final String EOD = "0";
 
 	public static void solution() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,12 +17,7 @@ public class Main {
 				break;
 			}
 			
-			Deque<String> deque = new ArrayDeque<>();
-			for (int i = 0; i < testCase.length(); i++) {
-				deque.push(testCase.substring(i, i + 1));
-			}
-			String result = discriminator(deque);
-			bw.write(result + "\n");
+			bw.write(isPalindrome(testCase) ? "yes\n" : "no\n");
 		}
 
 		br.close();
@@ -32,15 +25,17 @@ public class Main {
 		bw.close();
 	}
 
-	private static String discriminator(Deque<String> deque) {
-		while (deque.size() > 1) {
-			String first = deque.pollFirst();
-			String last = deque.pollLast();
-			if (!first.equals(last)) {
-				return "no";
+	private static boolean isPalindrome(String testCase) {
+		int first = 0;
+		int last = testCase.length() - 1;
+		while (first < last) {
+			if (testCase.charAt(first) != testCase.charAt(last)) {
+				return false;
 			}
+			first++;
+			last--;
 		}
-		return "yes";
+		return true;
 	}
 
 	public static void main(String[] args) throws Exception {
