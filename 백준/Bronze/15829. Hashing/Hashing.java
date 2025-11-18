@@ -13,17 +13,14 @@ public class Main {
 		int L = Integer.parseInt(br.readLine());
 		String input = br.readLine();
 
-		char[] inputArr = input.toCharArray();
-		int[] numArr = new int[L];
-		for (int i = 0; i < numArr.length; i++) {
-			numArr[i] = inputArr[i] - 96;
+		long result = 0;
+		long pow = 1;
+		for (int i = 0; i < L; i++) {
+			result += (input.charAt(i) - 96) * pow;
+			pow = (pow * 31) % 1234567891;
 		}
 
-		long result = 0;
-		for (int i = 0; i < numArr.length; i++) {
-			result += (long)(numArr[i] * Math.pow(31, i));
-		}
-		bw.write(result + "");
+		bw.write(result % 1234567891 + "");
 
 		br.close();
 		bw.flush();
