@@ -22,13 +22,6 @@ public class Main {
 
 			Arrays.sort(levels);
 
-			for (int i = 0; i < cutting; i++) {
-				levels[i] = 0;
-			}
-			for (int i = levels.length - 1; i >= levels.length - cutting; i--) {
-				levels[i] = 0;
-			}
-
 			int sum = 0;
 			for (int i = cutting; i < levels.length - cutting; i++) {
 				sum += levels[i];
