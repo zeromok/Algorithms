@@ -1,13 +1,12 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Main {
-	private static final String EOD = "0";
+	static final String EOD = "0";
 
-	public static void solution() throws IOException {
+	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
@@ -16,7 +15,6 @@ public class Main {
 			if (testCase.equals(EOD)) {
 				break;
 			}
-			
 			bw.write(isPalindrome(testCase) ? "yes\n" : "no\n");
 		}
 
@@ -25,20 +23,14 @@ public class Main {
 		bw.close();
 	}
 
-	private static boolean isPalindrome(String testCase) {
-		int first = 0;
-		int last = testCase.length() - 1;
-		while (first < last) {
-			if (testCase.charAt(first) != testCase.charAt(last)) {
-				return false;
-			}
-			first++;
-			last--;
+	private static boolean isPalindrome(String t) {
+		int original = Integer.parseInt(t);
+		int reversed = 0;
+		int temp = original;
+		while (temp > 0) {
+			reversed = reversed * 10 + temp % 10;
+			temp /= 10;
 		}
-		return true;
-	}
-
-	public static void main(String[] args) throws Exception {
-		solution();
+		return original == reversed;
 	}
 }
