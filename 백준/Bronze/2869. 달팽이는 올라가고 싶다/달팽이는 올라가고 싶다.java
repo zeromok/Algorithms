@@ -15,7 +15,8 @@ public class Main {
 		int B = Integer.parseInt(st.nextToken());
 		int V = Integer.parseInt(st.nextToken());
 
-		bw.write((V - B - 1) / (A - B) + 1 + "");
+		int day = ((V - A + A - B - 1) / (A - B)) + 1;
+		bw.write(day + "");
 
 		br.close();
 		bw.flush();
