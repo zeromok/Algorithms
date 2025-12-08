@@ -14,16 +14,16 @@ public class Main {
 		int N = Integer.parseInt(st.nextToken());
 		int K = Integer.parseInt(st.nextToken());
 
-		bw.write(factorial(N) / (factorial(N - K) * factorial(K)) + "");
+		int result = 1;
+		for (int i = 0; i < K; i++) {
+			result *= N - i;
+			result /= i + 1;
+		}
+
+		bw.write(result + "");
 
 		br.close();
 		bw.flush();
 		bw.close();
-	}
-
-	private static int factorial(int n) {
-		if (n == 0)
-			return 1;
-		return n * factorial(n - 1);
 	}
 }
