@@ -3,50 +3,50 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
-    static ArrayList<Integer>[] graph;
-    static boolean[] visited;
-    static int count = 0;
-    
-    public static void main(String[] args) throws Exception {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
-            
-            int n = Integer.parseInt(br.readLine());
-			int m = Integer.parseInt(br.readLine());
+	static List<List<Integer>> graph = new ArrayList<>();
+	static boolean[] visited;
+	static int count;
 
-			graph = new ArrayList[n + 1];
-			visited = new boolean[n + 1];
-			for (int i = 1; i <= n; i++) {
-				graph[i] = new ArrayList<>();
+	public static void main(String[] args) throws Exception {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
+
+			int vertices = Integer.parseInt(br.readLine());
+			visited = new boolean[vertices + 1];
+
+			for (int i = 0; i < vertices + 1; i++) {
+				graph.add(new ArrayList<>());
 			}
 
-			for (int i = 0; i < m; i++) {
-				StringTokenizer st = new StringTokenizer(br.readLine());
-				int a = Integer.parseInt(st.nextToken());
-				int b = Integer.parseInt(st.nextToken());
+			int edgeNum = Integer.parseInt(br.readLine());
 
-				graph[a].add(b);
-				graph[b].add(a);
+			for (int i = 0; i < edgeNum; i++) {
+				StringTokenizer st = new StringTokenizer(br.readLine());
+				int x = Integer.parseInt(st.nextToken());
+				int y = Integer.parseInt(st.nextToken());
+				graph.get(x).add(y);
+				graph.get(y).add(x);
 			}
 
 			dfs(1);
-
 			bw.write(count - 1 + "");
+
 			bw.flush();
-        }
-    }
-    
-    private static void dfs(int node) {
-        visited[node] = true;
-        count++;
-        
-        for (Integer next : graph[node]) {
-            if (!visited[next]) {
-                dfs(next);
-            }
-        }
-    }
+		}
+	}
+
+	private static void dfs(int start) {
+		visited[start] = true;
+		count++;
+
+		for (int e : graph.get(start)) {
+			if (!visited[e]) {
+				dfs(e);
+			}
+		}
+	}
 }
