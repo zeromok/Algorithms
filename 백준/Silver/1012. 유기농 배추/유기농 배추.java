@@ -2,13 +2,16 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
 	static int[][] field;
-	static boolean[][] visited;
-	static int N;
 	static int M;
+	static int N;
+	static boolean[][] visited;
+
 	public static void main(String[] args) throws Exception {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
@@ -31,7 +34,7 @@ public class Main {
 				for (int i = 0; i < M; i++) {
 					for (int j = 0; j < N; j++) {
 						if (field[i][j] == 1 && !visited[i][j]) {
-							dfs(i, j);
+							bfs(i, j);
 							count++;
 						}
 					}
@@ -43,17 +46,24 @@ public class Main {
 		}
 	}
 
-	private static void dfs(int x, int y) {
+	private static void bfs(int x, int y) {
+		Queue<int[]> queue = new LinkedList<>();
+		queue.offer(new int[] {x, y});
 		visited[x][y] = true;
 
 		int[] dx = {-1, 1, 0, 0};
 		int[] dy = {0, 0, -1, 1};
-		for (int i = 0; i < 4; i++) {
-			int new_x = x + dx[i];
-			int new_y = y + dy[i];
 
-			if (0 <= new_x && new_x < M && 0 <= new_y && new_y < N && !visited[new_x][new_y] && field[new_x][new_y] == 1) {
-				dfs(new_x, new_y);
+		while (!queue.isEmpty()) {
+			int[] v = queue.poll();
+
+			for (int i = 0; i < 4; i++) {
+				int nx = v[0] + dx[i];
+				int ny= v[1] + dy[i];
+				if (nx >= 0 && nx < M && ny >= 0 && ny < N && !visited[nx][ny] && field[nx][ny] == 1) {
+					queue.offer(new int[] {nx, ny});
+					visited[nx][ny] = true;
+				}
 			}
 		}
 	}
