@@ -2,33 +2,28 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class Main {
-	static final int POP_CMD = 0;
-	static final int EMPTY_HEAP_VALUE = 0;
 
 	public static void main(String[] args) throws Exception {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
 
-			int T = Integer.parseInt(br.readLine());
-			PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2 - o1);
+			int N = Integer.parseInt(br.readLine());
 
-			while (T-- > 0) {
-				int input = Integer.parseInt(br.readLine());
-				if (input == POP_CMD) {
-					bw.write(getMaxValue(maxHeap) + "\n");
+			PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+			while (N-- > 0) {
+				int cmd = Integer.parseInt(br.readLine());
+				if (cmd == 0) {
+					int output = queue.isEmpty() ? 0 : queue.poll();
+					bw.write(output + "\n");
 				} else {
-					maxHeap.offer(input);
+					queue.add(cmd);
 				}
 			}
-
 			bw.flush();
 		}
-	}
-
-	private static int getMaxValue(PriorityQueue<Integer> queue) {
-		return queue.isEmpty() ? EMPTY_HEAP_VALUE : queue.poll();
 	}
 }
