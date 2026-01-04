@@ -13,24 +13,21 @@ public class Main {
 			 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
 
 			int N = Integer.parseInt(br.readLine());
-			int[] input = new int[N];
+			int[] inputs = new int[N];
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			for (int i = 0; i < N; i++) {
-				input[i] = Integer.parseInt(st.nextToken());
+				inputs[i] = Integer.parseInt(st.nextToken());
 			}
 
-			int[] sorted = Arrays.stream(input)
-				.distinct()
-				.sorted()
-				.toArray();
+			int[] sorted = Arrays.stream(inputs).distinct().sorted().toArray();
 
-			Map<Integer, Integer> rank = new HashMap<>();
+			Map<Integer, Integer> mapping = new HashMap<>();
 			for (int i = 0; i < sorted.length; i++) {
-				rank.put(sorted[i], i);
+				mapping.put(sorted[i], i);
 			}
 
-			for (int i : input) {
-				bw.write(rank.get(i) + " ");
+			for (int input : inputs) {
+				bw.write(mapping.get(input) + " ");
 			}
 
 			bw.flush();
