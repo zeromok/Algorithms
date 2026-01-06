@@ -5,9 +5,6 @@ import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Main {
-	static final int WHITE = 0;
-	static final int BLUE = 1;
-
 	static int[][] paper;
 	static int whiteCnt;
 	static int blueCnt;
@@ -18,7 +15,6 @@ public class Main {
 
 			int N = Integer.parseInt(br.readLine());
 			paper = new int[N][N];
-
 			for (int i = 0; i < N; i++) {
 				StringTokenizer st = new StringTokenizer(br.readLine());
 				for (int j = 0; j < N; j++) {
@@ -33,29 +29,27 @@ public class Main {
 		}
 	}
 
-	private static void recursion(int x, int y, int size) {
-		if (isSameColor(x, y, size)) {
-			if (paper[x][y] == WHITE) {
+	private static void recursion(int x, int y, int n) {
+		if (colorSameChk(x, y, n)) {
+			if (paper[x][y] == 0) {
 				whiteCnt++;
 			} else {
 				blueCnt++;
 			}
-			return;
+		} else {
+			int size = n / 2;
+			recursion(x, y, size);
+			recursion(x, y + size, size);
+			recursion(x + size, y, size);
+			recursion(x + size, y + size, size);
 		}
-
-		int nextSize = size / 2;
-		recursion(x, y, nextSize);
-		recursion(x, y + nextSize, nextSize);
-		recursion(x + nextSize, y, nextSize);
-		recursion(x + nextSize, y + nextSize, nextSize);
-
 	}
 
-	private static boolean isSameColor(int x, int y, int size) {
-		int baseColor = paper[x][y];
-		for (int i = x; i < x + size; i++) {
-			for (int j = y; j < y + size; j++) {
-				if (paper[i][j] != baseColor) {
+	private static boolean colorSameChk(int x, int y, int n) {
+		int pivot = paper[x][y];
+		for (int i = x; i < x + n; i++) {
+			for (int j = y; j < y + n; j++) {
+				if (pivot != paper[i][j]) {
 					return false;
 				}
 			}
