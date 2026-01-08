@@ -23,25 +23,24 @@ public class Main {
 	}
 
 	private static int bfs(int n, int k) {
-		Queue<Integer> queue = new LinkedList<>();
 		boolean[] visited = new boolean[100_001];
 		int[] time = new int[100_001];
-
+		Queue<Integer> queue = new LinkedList<>();
 		queue.offer(n);
-		visited[n] = true;
 		time[n] = 0;
+		visited[n] = true;
 
 		while (!queue.isEmpty()) {
-			int current = queue.poll();
-			if (current == k) {
-				return time[current];
+			int curr = queue.poll();
+			if (curr == k) {
+				return time[curr];
 			}
 
-			int[] nextPositions = {current - 1, current + 1, current * 2};
+			int[] nextPositions = {curr - 1, curr + 1, curr * 2};
 			for (int next : nextPositions) {
 				if (next >= 0 && next <= 100000 && !visited[next]) {
 					visited[next] = true;
-					time[next] = time[current] + 1;
+					time[next] = time[curr] + 1;
 					queue.offer(next);
 				}
 			}
