@@ -11,19 +11,21 @@ import java.util.StringTokenizer;
 
 public class Main {
 	static int N;
+	static int M;
 	static List<List<Integer>> graph;
+
 	public static void main(String[] args) throws Exception {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
 
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			N = Integer.parseInt(st.nextToken());
-			int M = Integer.parseInt(st.nextToken());
+			N = Integer.parseInt(st.nextToken()); // 유저 수
 			graph = new ArrayList<>();
 			for (int i = 0; i <= N; i++) {
-				graph.add(new ArrayList<>());
+				graph.add(i, new ArrayList<>());
 			}
 
+			M = Integer.parseInt(st.nextToken()); // 관계 수
 			for (int i = 0; i < M; i++) {
 				st = new StringTokenizer(br.readLine());
 				int x = Integer.parseInt(st.nextToken());
@@ -32,44 +34,50 @@ public class Main {
 				graph.get(y).add(x);
 			}
 
-			int minDistances = Integer.MAX_VALUE;
-			int minIdx = 0;
+			int minValue = Integer.MAX_VALUE;
+			int idx = N;
 			for (int i = 1; i <= N; i++) {
-				int kevinBaconNum = calculateKevinBaconNum(i);
-				if (kevinBaconNum < minDistances) {
-					minDistances = kevinBaconNum;
-					minIdx = i;
+				int sum = getCavinBaconSum(i);
+				if (minValue > sum || (minValue == sum && idx > i)) {
+					idx = i;
+					minValue = sum;
 				}
 			}
-			bw.write(minIdx + "");
+
+			bw.write(idx + "");
 
 			bw.flush();
 		}
 	}
 
-	static int calculateKevinBaconNum(int start) {
-		int[] distances = new int[N + 1];
-		Arrays.fill(distances, -1);
+	private static int getCavinBaconSum(int start) {
+		int[] distance = new int[N + 1];
+		Arrays.fill(distance, -1);
 
 		Queue<Integer> queue = new LinkedList<>();
+		distance[start] = 0;
 		queue.offer(start);
-		distances[start] = 0;
 
 		while (!queue.isEmpty()) {
-			int v = queue.poll();
+			int curr = queue.poll();
 
-			for (int neighbor : graph.get(v)) {
-				if (distances[neighbor] == -1) {
-					distances[neighbor] = distances[v] + 1;
-					queue.offer(neighbor);
+			for (Integer i : graph.get(curr)) {
+				if (distance[i] == -1) {
+					distance[i] = distance[curr] + 1;
+					queue.offer(i);
 				}
 			}
 		}
+
+		return distanceSum(distance);
+	}
+
+	private static int distanceSum(int[] distance) {
 		int sum = 0;
-		for (int i = 1; i <= N; i++) {
-			sum += distances[i];
+		for (int i : distance) {
+			sum += i;
 		}
 
-		return sum;
+		return sum + 1;
 	}
 }
