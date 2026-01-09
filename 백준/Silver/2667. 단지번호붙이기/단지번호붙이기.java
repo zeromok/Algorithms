@@ -3,17 +3,14 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Queue;
 
 public class Main {
+	private static final int[][] DIRECTIONS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 	static int N;
 	static int[][] map;
 	static boolean[][] visited;
-	static int componentNum;
-	static List<Integer> homeNum = new ArrayList<>();
 
 	public static void main(String[] args) throws Exception {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,57 +19,49 @@ public class Main {
 			N = Integer.parseInt(br.readLine());
 			map = new int[N][N];
 			visited = new boolean[N][N];
-
 			for (int i = 0; i < N; i++) {
 				char[] line = br.readLine().toCharArray();
 				for (int j = 0; j < N; j++) {
-					map[i][j] = line[j] - 48;
+					int value = line[j] - '0';
+					map[i][j] = value;
 				}
 			}
 
-			getComponentNum();
-			bw.write(componentNum + "\n");
-			homeNum.sort(Comparator.naturalOrder());
-			for (Integer num : homeNum) {
-				bw.write(num + "\n");
-			}
+			List<Integer> sortedCity = findCity();
 
+			bw.write(sortedCity.size() + "\n");
+			for (Integer city : sortedCity) {
+				bw.write(city + "\n");
+			}
 			bw.flush();
 		}
 	}
 
-	private static void getComponentNum() {
+	private static List<Integer> findCity() {
+		List<Integer> sizes = new ArrayList<>();
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				if (!visited[i][j] && map[i][j] == 1) {
-					int bfs = bfs(i, j);
-					homeNum.add(bfs);
-					componentNum++;
+					int size = DFS(i, j);
+					sizes.add(size);
 				}
 			}
 		}
+
+		Collections.sort(sizes);
+		return sizes;
 	}
 
-	private static int bfs(int x, int y) {
-		int count = 1;
-		Queue<int[]> queue = new LinkedList<>();
-		queue.offer(new int[] {x, y});
+	private static int DFS(int x, int y) {
 		visited[x][y] = true;
+		int count = 1;
 
-		int[] dx = {-1, 1, 0, 0};
-		int[] dy = {0, 0, -1, 1};
-		while (!queue.isEmpty()) {
-			int[] curr = queue.poll();
+		for (int[] dir : DIRECTIONS) {
+			int nx = x + dir[0];
+			int ny = y + dir[1];
 
-			for (int i = 0; i < 4; i++) {
-				int nx = curr[0] + dx[i];
-				int ny = curr[1] + dy[i];
-
-				if (nx >= 0 && nx < N && ny >= 0 && ny < N && !visited[nx][ny] && map[nx][ny] == 1) {
-					count++;
-					queue.offer(new int[] {nx, ny});
-					visited[nx][ny] = true;
-				}
+			if (nx >= 0 && ny >= 0 && nx < N && ny < N && !visited[nx][ny] && map[nx][ny] == 1) {
+				count += DFS(nx, ny);
 			}
 		}
 		return count;
