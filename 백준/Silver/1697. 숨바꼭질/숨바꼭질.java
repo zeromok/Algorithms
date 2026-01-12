@@ -16,16 +16,18 @@ public class Main {
 			int N = Integer.parseInt(st.nextToken());
 			int K = Integer.parseInt(st.nextToken());
 
-			bw.write(bfs(N, K) + "");
+			int result = bfs(N, K);
+			bw.write(result + "");
 
 			bw.flush();
 		}
 	}
 
 	private static int bfs(int n, int k) {
-		boolean[] visited = new boolean[100_001];
-		int[] time = new int[100_001];
 		Queue<Integer> queue = new LinkedList<>();
+		int[] time = new int[100_001];
+		boolean[] visited = new boolean[100_001];
+
 		queue.offer(n);
 		time[n] = 0;
 		visited[n] = true;
@@ -36,12 +38,12 @@ public class Main {
 				return time[curr];
 			}
 
-			int[] nextPositions = {curr - 1, curr + 1, curr * 2};
-			for (int next : nextPositions) {
-				if (next >= 0 && next <= 100000 && !visited[next]) {
+			int[] nextPosition = {curr - 1, curr + 1, 2 * curr};
+			for (int next : nextPosition) {
+				if (next >= 0 && next <= 100_000 && !visited[next]) {
+					queue.offer(next);
 					visited[next] = true;
 					time[next] = time[curr] + 1;
-					queue.offer(next);
 				}
 			}
 		}
