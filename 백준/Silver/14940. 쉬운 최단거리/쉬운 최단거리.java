@@ -9,49 +9,43 @@ import java.util.StringTokenizer;
 public class Main {
 	static int n;
 	static int m;
-	static int[][] graph;
-	static int[][] result;
+	static int[][] map;
 	static int[][] dist;
-	static int[][] DIRECTION = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-
-	static class Point {
-		int x;
-		int y;
-
-		public Point(int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
-	}
+	final static int TARGET_VALUE = 2;
+	final static int WALL = 0;
 
 	public static void main(String[] args) throws Exception {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
 
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			n = Integer.parseInt(st.nextToken()); // 세로
-			m = Integer.parseInt(st.nextToken()); // 가로
+			n = Integer.parseInt(st.nextToken());
+			m = Integer.parseInt(st.nextToken());
 
-			graph = new int[n][m];
-			result = new int[n][m];
+			map = new int[n][m];
 			dist = new int[n][m];
 
-			Point target = null;
+			int[] target = new int[2];
 			for (int i = 0; i < n; i++) {
 				st = new StringTokenizer(br.readLine());
 				for (int j = 0; j < m; j++) {
-					int input = Integer.parseInt(st.nextToken());
-					if (input == 2) {
-						target = new Point(i, j);
+					int value = Integer.parseInt(st.nextToken());
+					map[i][j] = value;
+					dist[i][j] = -1;
+
+					if (map[i][j] == TARGET_VALUE) {
+						target = new int[] {i, j};
+					} else if (map[i][j] == WALL) {
+						dist[i][j] = 0;
 					}
-					graph[i][j] = input;
 				}
 			}
 
 			bfs(target);
+
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < m; j++) {
-					if (graph[i][j] == 0) {
+					if (map[i][j] == 0) {
 						bw.write("0 ");
 					} else {
 						bw.write(dist[i][j] + " ");
@@ -64,27 +58,23 @@ public class Main {
 		}
 	}
 
-	private static void bfs(Point target) {
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				dist[i][j] = -1;
-			}
-		}
+	private static void bfs(int[] target) {
+		Queue<int[]> queue = new LinkedList<>();
 
-		Queue<Point> queue = new LinkedList<>();
-		queue.offer(new Point(target.x, target.y));
-		dist[target.x][target.y] = 0;
+		queue.offer(target);
+		dist[target[0]][target[1]] = 0;
 
+		int[][] positions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 		while (!queue.isEmpty()) {
-			Point curr = queue.poll();
+			int[] curr = queue.poll();
 
-			for (int[] position : DIRECTION) {
-				int nx = position[0] + curr.x;
-				int ny = position[1] + curr.y;
+			for (int[] position : positions) {
+				int nx = curr[0] + position[0];
+				int ny = curr[1] + position[1];
 
-				if (nx >= 0 && nx < n && ny >= 0 && ny < m && dist[nx][ny] == -1 && graph[nx][ny] != 0) {
-					dist[nx][ny] = dist[curr.x][curr.y] + 1;
-					queue.offer(new Point(nx, ny));
+				if (nx >= 0 && nx < n && ny >= 0 && ny < m && map[nx][ny] != 0 && dist[nx][ny] == -1) {
+					queue.offer(new int[] {nx, ny});
+					dist[nx][ny] = dist[curr[0]][curr[1]] + 1;
 				}
 			}
 		}
